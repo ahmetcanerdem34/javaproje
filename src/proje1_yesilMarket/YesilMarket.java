@@ -68,6 +68,7 @@ public class YesilMarket {
 		ödeme(toplamFiyat);	
 		
 		System.out.println("güzel proje oldu SATIR 70");
+		System.out.println("güzel olmakla beraber baþkalarýna aracý olacak");
 		
 	}
 	public static void ürünListele() {//ürünleri gösterecek bir method yazmalýyýz
