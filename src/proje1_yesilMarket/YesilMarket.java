@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class YesilMarket {
-	
-	//önemli proje
+
 	
 	public static List<String> ürünler = new ArrayList<>();
 	public static List<Double> fiyatlar = new ArrayList<>();
