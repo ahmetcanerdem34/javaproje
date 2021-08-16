@@ -7,138 +7,140 @@ import java.util.Scanner;
 
 public class YesilMarket {
 	
-	public static List<String> ürünler = new ArrayList<>();
+	//Ã¶nemli proje
+	
+	public static List<String> Ã¼rÃ¼nler = new ArrayList<>();
 	public static List<Double> fiyatlar = new ArrayList<>();
 	
-	public static List<String> sepetÜrünler = new ArrayList<>();
+	public static List<String> sepetÃœrÃ¼nler = new ArrayList<>();
 	public static List<Double> sepetKg = new ArrayList<>();
 	public static List<Double> sepetFiyatlar = new ArrayList<>();
 	
 	public static void main(String[] args) {
 		
-		/* Yeşil Market alış-veriş programı.
+		/* YeÅŸil Market alÄ±ÅŸ-veriÅŸ programÄ±.
          * 
-         * 1. Adım: Ürünler ve fiyatları içeren listeleri oluşturunuz.
-         *          No      Ürün         Fiyat
+         * 1. AdÄ±m: ÃœrÃ¼nler ve fiyatlarÄ± iÃ§eren listeleri oluÅŸturunuz.
+         *          No      ÃœrÃ¼n         Fiyat
                   ====  =======        =========
                     00   Domates         2.10 TL 
                     01   Patates         3.20 TL
                     02   Biber            1.50 TL
-                    03   Soğan            2.30 TL
-                    04   Havuç            3.10 TL
+                    03   SoÄŸan            2.30 TL
+                    04   HavuÃ§            3.10 TL
                     05   Elma             1.20 TL
                     06   Muz              1.90 TL
-                    07   Çilek             6.10 TL
+                    07   Ã‡ilek             6.10 TL
                     08   Kavun            4.30 TL
-                    09   Üzüm               2.70 TL
+                    09   ÃœzÃ¼m               2.70 TL
                     10   Limon             0.50 TL
                     
-         * 2. Adım: Kullanıcının ürün nosuna göre listeden ürün seçmesini isteyiniz.
-         * 3. Adım: Kaç kg satın almak istediğini sorunuz.
-         * 4. Adım: Alınacak bu ürünü sepete ekleyiniz ve Sepeti yazdırınız.
-         * 5. Başka bir ürün alıp almak istemediğini sorunuz.
-         * 6. Eğer devam etmek istiyorsa yeniden ürün seçme kısmına yönlendiriniz.
-         * 7. Eğer bitirmek istiyorsa ödeme kısmına geçiniz ve ödem sonrasında programı bitirinzi.
+         * 2. AdÄ±m: KullanÄ±cÄ±nÄ±n Ã¼rÃ¼n nosuna gÃ¶re listeden Ã¼rÃ¼n seÃ§mesini isteyiniz.
+         * 3. AdÄ±m: KaÃ§ kg satÄ±n almak istediÄŸini sorunuz.
+         * 4. AdÄ±m: AlÄ±nacak bu Ã¼rÃ¼nÃ¼ sepete ekleyiniz ve Sepeti yazdÄ±rÄ±nÄ±z.
+         * 5. BaÅŸka bir Ã¼rÃ¼n alÄ±p almak istemediÄŸini sorunuz.
+         * 6. EÄŸer devam etmek istiyorsa yeniden Ã¼rÃ¼n seÃ§me kÄ±smÄ±na yÃ¶nlendiriniz.
+         * 7. EÄŸer bitirmek istiyorsa Ã¶deme kÄ±smÄ±na geÃ§iniz ve Ã¶dem sonrasÄ±nda programÄ± bitirinzi.
          */
 		
 		Scanner scan =new Scanner(System.in);
 		
-		ürünler.addAll(Arrays.asList("Domates","Patates","Biber","Soğan","Havuç", "Elma", "Muz", "Cilek", "Kavun", "Uzum", "Limon"));
+		Ã¼rÃ¼nler.addAll(Arrays.asList("Domates","Patates","Biber","SoÄŸan","HavuÃ§", "Elma", "Muz", "Cilek", "Kavun", "Uzum", "Limon"));
 		
 		fiyatlar.addAll(Arrays.asList(2.10,3.20,1.50,2.30,3.10,1.20,1.90,6.10,4.30,2.70,0.50));
 		
 		String devam;
 		double toplamFiyat=0.0;
 		do {
-		ürünListele();	
-		System.out.println("ürününüzü numaraya göre seçiniz :");
+		Ã¼rÃ¼nListele();	
+		System.out.println("Ã¼rÃ¼nÃ¼nÃ¼zÃ¼ numaraya gÃ¶re seÃ§iniz :");
 		
-		int ürünNo=scan.nextInt();
-		System.out.println("kaç kg istiyorsunuz giriniz :");
+		int Ã¼rÃ¼nNo=scan.nextInt();
+		System.out.println("kaÃ§ kg istiyorsunuz giriniz :");
 		double kg=scan.nextDouble();	
-		//sepeteekle kısmı lazım orda urunun adı kg si ve urunun toplma fiyatı, methodda parametre olarak olmalı
+		//sepeteekle kÄ±smÄ± lazÄ±m orda urunun adÄ± kg si ve urunun toplma fiyatÄ±, methodda parametre olarak olmalÄ±
 		
-		sepeteEkle(ürünNo, kg );
+		sepeteEkle(Ã¼rÃ¼nNo, kg );
 		
-		toplamFiyat = Math.round(sepeteYazdır());
-		System.out.println("Alışverişe devam etmek ister misiniz");
+		toplamFiyat = Math.round(sepeteYazdÄ±r());
+		System.out.println("AlÄ±ÅŸveriÅŸe devam etmek ister misiniz");
 		devam = scan.next();
 		}while(devam.equalsIgnoreCase("e"));
 		
-		ödeme(toplamFiyat);	
+		Ã¶deme(toplamFiyat);	
 		
-		System.out.println("güzel proje oldu SATIR 70");
-		System.out.println("güzel olmakla beraber başkalarına aracı olacak");
+		System.out.println("gÃ¼zel proje oldu SATIR 70");
+		System.out.println("gÃ¼zel olmakla beraber baÅŸkalarÄ±na aracÄ± olacak");
 		
 	}
-	public static void ürünListele() {//ürünleri gösterecek bir method yazmalıyız
+	public static void Ã¼rÃ¼nListele() {//Ã¼rÃ¼nleri gÃ¶sterecek bir method yazmalÄ±yÄ±z
 		
-		System.out.println("No\t Ürünler \tFiyatlar");
+		System.out.println("No\t ÃœrÃ¼nler \tFiyatlar");
 		System.out.println("===\t ======== \t========");
 		
-		for (int i = 0; i < ürünler.size(); i++) {
+		for (int i = 0; i < Ã¼rÃ¼nler.size(); i++) {
 			
-			System.out.println(" "+ i + "\t" + ürünler.get(i) + "\t \t" + fiyatlar.get(i));
+			System.out.println(" "+ i + "\t" + Ã¼rÃ¼nler.get(i) + "\t \t" + fiyatlar.get(i));
 		}
 	
 	}	
-	public static void sepeteEkle(int ürünNo, double kg) {
+	public static void sepeteEkle(int Ã¼rÃ¼nNo, double kg) {
 
-		sepetÜrünler.add(ürünler.get(ürünNo));
+		sepetÃœrÃ¼nler.add(Ã¼rÃ¼nler.get(Ã¼rÃ¼nNo));
 		sepetKg.add(kg);
-		sepetFiyatlar.add(fiyatlar.get(ürünNo) * kg);
+		sepetFiyatlar.add(fiyatlar.get(Ã¼rÃ¼nNo) * kg);
 		
 		
 	}
 	
-	public static double sepeteYazdır() {
-		double fiyatToplamı=0.0;
-		double kgToplamı=0.0;
-		System.out.println("ürün adı \tKG \tFiyatı");//sürekli yazdırmasın diye buraya koyduk for dışında
+	public static double sepeteYazdÄ±r() {
+		double fiyatToplamÄ±=0.0;
+		double kgToplamÄ±=0.0;
+		System.out.println("Ã¼rÃ¼n adÄ± \tKG \tFiyatÄ±");//sÃ¼rekli yazdÄ±rmasÄ±n diye buraya koyduk for dÄ±ÅŸÄ±nda
 		System.out.println("============================================================");
 		
-		for (int i = 0; i <sepetÜrünler.size(); i++) {//list te size diyorduk
-			System.out.println(sepetÜrünler.get(i) + "\t \t" + sepetKg.get(i) + "\t" + sepetFiyatlar.get(i));
+		for (int i = 0; i <sepetÃœrÃ¼nler.size(); i++) {//list te size diyorduk
+			System.out.println(sepetÃœrÃ¼nler.get(i) + "\t \t" + sepetKg.get(i) + "\t" + sepetFiyatlar.get(i));
 			
-			fiyatToplamı+=sepetFiyatlar.get(i);
-			kgToplamı+=sepetKg.get(i);
+			fiyatToplamÄ±+=sepetFiyatlar.get(i);
+			kgToplamÄ±+=sepetKg.get(i);
 			
 			
 		}
 		
 		System.out.println("============================================================");
-		System.out.println("\t TOPLAM" + kgToplamı + "\t" + fiyatToplamı);
+		System.out.println("\t TOPLAM" + kgToplamÄ± + "\t" + fiyatToplamÄ±);
 		
-		return fiyatToplamı;
+		return fiyatToplamÄ±;
 	}
 	
 	
-	public static void ödeme(double toplamFiyat){
+	public static void Ã¶deme(double toplamFiyat){
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("**************************");
-		System.out.println("**********ÖDEME***********");
-		System.out.println("Ödenecek Toplam Fiyat :" + toplamFiyat);
+		System.out.println("**********Ã–DEME***********");
+		System.out.println("Ã–denecek Toplam Fiyat :" + toplamFiyat);
 		
-		double nakit=0.0;//local olduğu için do dışında tanımlamak gerekiyor
+		double nakit=0.0;//local olduÄŸu iÃ§in do dÄ±ÅŸÄ±nda tanÄ±mlamak gerekiyor
 		
 		do {
-		System.out.print("Lütfen nakit giriniz :");
+		System.out.print("LÃ¼tfen nakit giriniz :");
 		nakit+=scan.nextDouble();
 		if(nakit<toplamFiyat) {
 			System.out.println("girilen rakam yetersiz :");
-			System.out.println((toplamFiyat-nakit) + "TL  daha yatırmanız gerekmektedir :");
+			System.out.println((toplamFiyat-nakit) + "TL  daha yatÄ±rmanÄ±z gerekmektedir :");
 		
 		}
 		
 		}while(nakit<toplamFiyat);
 	
-		double paraÜstü=nakit-toplamFiyat;
+		double paraÃœstÃ¼=nakit-toplamFiyat;
 		
-		if(paraÜstü>0) {
+		if(paraÃœstÃ¼>0) {
 			
-			System.out.println("paraüstü ="+paraÜstü);
-		}//burda else de koyardık ama her durumda yine bekleriz durumunda görülsün
+			System.out.println("paraÃ¼stÃ¼ ="+paraÃœstÃ¼);
+		}//burda else de koyardÄ±k ama her durumda yine bekleriz durumunda gÃ¶rÃ¼lsÃ¼n
 		
 		System.out.println("yine bekleriz");
 	}
